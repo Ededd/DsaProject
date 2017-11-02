@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Menu {
 	
 	/* Given an object of type PeopleInTheNetwork, that stores all the users in the newtwork,
-	 * this procedure executes the MENU of the social network. I will be exectuted in the main method.
+	 * this procedure executes the menu of the social network. I will be exectuted in the main method.
 	 */
 	public static void menu(PeopleInTheNetwork people) {
 		int choice;
