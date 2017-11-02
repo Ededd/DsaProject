@@ -1,0 +1,5 @@
+idperson,name,lastname,birthdate,gender,birthplace,home,studiedat,workplaces,films,groupcode
+Andrea91,Andrea,Camilleri,6-9-1925,male,Porto Empedocle,Rome,Rome,INT;writer,A Beautiful Mind;American Beauty;Batman,G611732
+Juan98,Juan,Ortuño,23-4-1969,male,Donostia,Baiona,Usandizaga,teacher,Star Wars;The Social Network,G611732
+Malena17,Malena,Moreno,19-6-1998,female,Bilbao,Bilbao,Marianistas,student,Star Trek;Arrival,G611732
+Ane50,Ane,Peñalva,4-7-1998,female,Donostia,Zarautz,Amara Berri,student,Indiana Jones,G611732
