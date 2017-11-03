@@ -10,7 +10,7 @@ public class Menu {
 	public static void menu(PeopleInTheNetwork people) {
 		int choice;
 		Scanner input = new Scanner(System.in);
-		
+		//Comment
 		System.out.println("Select one of the following options:");
 		System.out.println("1. Load a file of people.");
 		System.out.println("2. Load a file of friends.");
