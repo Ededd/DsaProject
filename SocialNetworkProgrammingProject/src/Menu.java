@@ -5,12 +5,12 @@ import java.util.Scanner;
 public class Menu {
 	
 	/* Given an object of type PeopleInTheNetwork, that stores all the users in the newtwork,
-	 * this procedure executes the MENU of the social network. I will be exectuted in the main method.
+	 * this procedure executes the menu of the social network. I will be exectuted in the main method.
 	 */
 	public static void menu(PeopleInTheNetwork people) {
 		int choice;
 		Scanner input = new Scanner(System.in);
-		//Comment
+		
 		System.out.println("Select one of the following options:");
 		System.out.println("1. Load a file of people.");
 		System.out.println("2. Load a file of friends.");
