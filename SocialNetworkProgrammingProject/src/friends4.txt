@@ -1,0 +1,7 @@
+friend1,friend2
+Andrea91,Juan98
+Andrea91,Malena17
+Andrea91,Ane50
+Juan98,Malena17
+Juan98,Ane50
+Malena17,Ane50

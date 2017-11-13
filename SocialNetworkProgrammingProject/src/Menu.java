@@ -1,27 +1,34 @@
 import java.io.FileNotFoundException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
-//import java.util.ArrayList;
+
 
 public class Menu {
 	
 	/* Given an object of type PeopleInTheNetwork, that stores all the users in the newtwork,
-	 * this procedure executes the MENU of the social network. I will be exectuted in the main method.
+	 * this procedure executes the Menu of the social network. I will be exectuted in the main method.
 	 */
 	public static void menu(PeopleInTheNetwork people) {
 		int choice;
 		Scanner input = new Scanner(System.in);
-		
-		System.out.println("Select one of the following options:");
-		System.out.println("1. Load a file of people.");
-		System.out.println("2. Load a file of friends.");
-		System.out.println("3. Get the number of user in the network.");
-		System.out.println("4. Get the list of friends of a given user.");
-		System.out.println("5. Get the number of friends of a given user.");
-		System.out.println("6. Print a file with the IDs of all users.");
-		System.out.println("7. QUIT");
-		
+		//filepath: C:\Users\noela\Desktop\filename.txt
 		choice = -5;
-		while (choice != 7) {
+		while (choice != 14) {
+			System.out.println("Select one of the following options:");
+			System.out.println("1. Load a file of people.");
+			System.out.println("2. Load a file of friends.");
+			System.out.println("3. Get the number of user in the network.");
+			System.out.println("4. Get the list of friends of a given user.");
+			System.out.println("5. Get the number of friends of a given user.");
+			System.out.println("6. Print a file with the IDs of all users.");
+			System.out.println("7. Sort the network based on IDs (natural order)");
+			System.out.println("8. Sort the network based on SURNAMES and NAMES");
+			System.out.println("9. Sort the network based on BIRTHPLACE, SURNAMES and NAMES");
+			System.out.println("10. Sort the network based on BIRTHDATE, SURNAMES and NAMES");
+			System.out.println("11. Get the list of users born in a given city");
+			System.out.println("12. Get the list users born between two given dates.");
+			System.out.println("13. Get the list of users born in the same place as other users");
+			System.out.println("14. QUIT");
 			choice = input.nextInt();
 			switch (choice) {
 			case 1:
@@ -50,10 +57,10 @@ public class Menu {
 				System.out.println("There are "+ people.getNumberOfUsers() + " users registered in the social network.");
 				break;
 			case 4:
-				System.out.println("Introduce the nickname of a user:");
-				String id = input.next();
-				if (people.idInTheNetwork(id) ) {
-					people.getUser(id).printFriends();
+				System.out.println("Introduce the SURNAME of a user:");
+				String s = input.next();
+				if (people.surnameInTheNetwork(s)) {
+					people.printFriendsOfSurname(s);
 				} else {
 					System.out.println("The given nickname is invalid or not in the network. Please, try again:");
 				}
@@ -70,7 +77,7 @@ public class Menu {
 				try {
 					System.out.println("Introduce a path for the file:");
 					String path = input.next();
-					people.printListOfUsers(path);
+					people.printListOfIDs(path);
 					System.out.println("File successfully printed!");
 				} catch (FileNotFoundException e) {
 					System.out.println("The given path is invalid or the file does not exist. Try again.");
@@ -78,6 +85,77 @@ public class Menu {
 				}
 				break;
 			case 7:
+				people.IDSort();
+				try {
+					System.out.println("Introduce a path for the file:");
+					String path = input.next();
+					people.printListOfIDs(path);
+					System.out.println("File successfully printed!");
+				} catch (FileNotFoundException e) {
+					System.out.println("The given path is invalid or the file does not exist. Try again.");
+					break;
+				}
+				break;
+			case 8:
+				people.surnameNameSort();
+				try {
+					System.out.println("Introduce a path for the file:");
+					String path = input.next();
+					people.printListOfSurnameNames(path);
+					System.out.println("File successfully printed!");
+				} catch (FileNotFoundException e) {
+					System.out.println("The given path is invalid or the file does not exist. Try again.");
+					break;
+				}
+				break;
+			case 9:
+				people.birthplaceSurnameNameSort();
+				try {
+					System.out.println("Introduce a path for the file:");
+					String path = input.next();
+					people.printListOfBirthplaceSurNames(path);
+					System.out.println("File successfully printed!");
+				} catch (FileNotFoundException e) {
+					System.out.println("The given path is invalid or the file does not exist. Try again.");
+					break;
+				}
+				break;
+			case 10:
+				people.birthdateSort();
+				try {
+					System.out.println("Introduce a path for the file:");
+					String path = input.next();
+					people.printListOfBirthdates(path);
+					System.out.println("File successfully printed!");
+				} catch (FileNotFoundException e) {
+					System.out.println("The given path is invalid or the file does not exist. Try again.");
+					break;
+				}
+				break;
+			case 11:
+				System.out.println("Introduce a CITY:");
+				String city = input.next();
+				people.printUsersBornIn(city);
+				break;
+			case 12:
+				System.out.println("Introduce a DATE (format dd-mm-yy):");
+				String d1 = input.next();
+				System.out.println("Introduce another DATE (format dd-mm-yy):");
+				String d2 = input.next();
+				people.printUsersBetweenDates(d1, d2);
+				break;
+			case 13:
+				people.birthdateSort();
+				try {
+					System.out.println("Introduce a path for the file:");
+					String path = input.next();
+					people.printUsersFrom(path);
+				} catch (FileNotFoundException e) {
+					System.out.println("The given path is invalid or the file does not exist. Try again.");
+					break;
+				}
+				break;
+			case 14:
 				System.out.println("END OF THE PROGRAM");
 				break;
 			default:
