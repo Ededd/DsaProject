@@ -8,6 +8,8 @@ public class Menu {
 	/* Given an object of type PeopleInTheNetwork, that stores all the users in the newtwork,
 	 * this procedure executes the user's menu of the social network. I will be exectuted in the main method.
 	 */
+	
+	
 	public static void menu(PeopleInTheNetwork people) {
 		int choice;
 		Scanner input = new Scanner(System.in);
