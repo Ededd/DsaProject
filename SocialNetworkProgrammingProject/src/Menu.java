@@ -14,6 +14,8 @@ public class Menu {
 		//filepath: C:\Users\noela\Desktop\filename.txt
 		choice = -5;
 		while (choice != 14) {
+			System.out.println();
+			System.out.println();
 			System.out.println("Select one of the following options:");
 			System.out.println("1. Load a file of people.");
 			System.out.println("2. Load a file of friends.");
@@ -29,13 +31,14 @@ public class Menu {
 			System.out.println("12. Get the list users born between two given dates.");
 			System.out.println("13. Get the list of users born in the same place as other users");
 			System.out.println("14. QUIT");
+			System.out.println();
 			choice = input.nextInt();
 			switch (choice) {
 			case 1:
 				try {
 					System.out.println("Introduce a path for the file with people:");
-					String path = input.next();
-					people.addPeopleToTheNetwork(path);
+					String name = input.next();
+					people.addPeopleToTheNetwork(name);
 					System.out.println("File successfully added!");
 				} catch (FileNotFoundException e) {
 					System.out.println("The given path is invalid or the file does not exist. Try again.");

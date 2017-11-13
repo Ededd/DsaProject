@@ -24,9 +24,9 @@ public class PeopleInTheNetwork {
 	/* Given a file path (String), the method reads the people
 	 * in the file and adds them to the network as new users.
 	 */
-	public void addPeopleToTheNetwork(String filePath) throws FileNotFoundException {
+	public void addPeopleToTheNetwork(String name) throws FileNotFoundException {
 		//We open the file:
-		File fileInstance = new File(filePath);
+		File fileInstance = new File(name);
 		Scanner f = new Scanner(fileInstance);
 		f.nextLine();
 		f.useDelimiter(",");
@@ -199,8 +199,8 @@ public class PeopleInTheNetwork {
 	/* Given a file path (String), the method reads the identifiers
 	 * in the file and adds them friend relationships to the network.
 	 */
-	public void addFriendsToTheNetwork(String filePath) throws FileNotFoundException {
-		File fileInstance = new File(filePath);
+	public void addFriendsToTheNetwork(String name) throws FileNotFoundException {
+		File fileInstance = new File(name);
 		Scanner f = new Scanner(fileInstance);
 		f.nextLine();
 		f.useDelimiter(",");
@@ -220,8 +220,8 @@ public class PeopleInTheNetwork {
 	/*Given a file path (String), the method creates a file in which
 	 * it lists the identifiers of all the users in the network:
 	 */
-	public void printListOfIDs(String filePath) throws FileNotFoundException {
-		File fileInstance = new File(filePath);
+	public void printListOfIDs(String name) throws FileNotFoundException {
+		File fileInstance = new File(name);
 		PrintWriter f = new PrintWriter(fileInstance);
 		for (Person p : list) {
 			f.println(p.getIdentifier());
@@ -229,8 +229,8 @@ public class PeopleInTheNetwork {
 		f.close();
 	}
 	
-	public void printListOfSurnameNames(String filePath) throws FileNotFoundException {
-		File fileInstance = new File(filePath);
+	public void printListOfSurnameNames(String name) throws FileNotFoundException {
+		File fileInstance = new File(name);
 		PrintWriter f = new PrintWriter(fileInstance);
 		for (Person p : list) {
 			f.println(p.getSurnames() + ", " + p.getName());
@@ -238,8 +238,8 @@ public class PeopleInTheNetwork {
 		f.close();
 	}
 	
-	public void printListOfBirthplaceSurNames(String filePath) throws FileNotFoundException {
-		File fileInstance = new File(filePath);
+	public void printListOfBirthplaceSurNames(String name) throws FileNotFoundException {
+		File fileInstance = new File(name);
 		PrintWriter f = new PrintWriter(fileInstance);
 		for (Person p : list) {
 			f.println(p.getBirthplace() + " / " + p.getSurnames() + ", " + p.getName());
@@ -247,8 +247,8 @@ public class PeopleInTheNetwork {
 		f.close();
 	}
 	
-	public void printListOfBirthdates(String filePath) throws FileNotFoundException {
-		File fileInstance = new File(filePath);
+	public void printListOfBirthdates(String name) throws FileNotFoundException {
+		File fileInstance = new File(name);
 		PrintWriter f = new PrintWriter(fileInstance);
 		for (Person p : list) {
 			f.println(p.getDate()[0] + "-" + p.getDate()[1] + "-" + p.getDate()[2] + " / " + p.getSurnames() + ", " + p.getName());
