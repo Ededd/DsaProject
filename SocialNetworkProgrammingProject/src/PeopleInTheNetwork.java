@@ -275,4 +275,9 @@ public class PeopleInTheNetwork {
 	public void birthdateSort() {
 		list.sort(Person.BirthdateSurnameNameComparator);
 	}
+	
+	//Sorter by MOVIES
+	public void movieSort() {
+		list.sort(Person.GeneralMovieComparator);
+	}
 }

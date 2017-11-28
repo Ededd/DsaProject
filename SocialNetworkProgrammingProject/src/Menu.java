@@ -32,7 +32,8 @@ public class Menu {
 			System.out.println("11. Get the list of users born in a given city");
 			System.out.println("12. Get the list users born between two given dates.");
 			System.out.println("13. Get the list of users born in the same place as other users");
-			System.out.println("14. QUIT");
+			System.out.println("14. Make groups of friends with same movie preferences");
+			System.out.println("15. QUIT");
 			System.out.println();
 			choice = input.nextInt();
 			switch (choice) {
@@ -161,6 +162,17 @@ public class Menu {
 				}
 				break;
 			case 14:
+				people.movieSort();
+				try {
+					System.out.println("Introduce a path for the file:");
+					String path = input.next();
+					people.printUsersFrom(path);
+				} catch (FileNotFoundException e) {
+					System.out.println("The given path is invalid or the file does not exist. Try again.");
+					break;
+				}
+				break;
+			case 15:
 				System.out.println("END OF THE PROGRAM");
 				break;
 			default:

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 
 public class Person {
@@ -11,13 +12,13 @@ public class Person {
 	private String identifier;
 	private String name;
 	private String surnames;
-	private String[] date; //For the moment, this is the only one changed.
+	private String[] date;
 	private String gender;
 	private String birthplace;
 	private String home;
 	private String studiedat;
 	private String workedat;
-	private String movies;
+	private ArrayList<String> movies;
 	private String groupcode;
 	private ArrayList<String> friends; //We don't store Person, just identifiers (String).
 	
@@ -40,9 +41,10 @@ public class Person {
 		this.home = home;
 		this.studiedat = studiedat;
 		this.workedat = workedat;
-		this.movies = movies;
+		this.movies = new ArrayList<String>(Arrays.asList(movies.split(";")));
+		this.movies.sort(null); //Sort in lexicographic order
 		this.groupcode = groupcode;
-		friends = new ArrayList<String>();
+		this.friends = new ArrayList<String>();
 	}
 
 	//Getters for identifier and friends:
@@ -207,4 +209,34 @@ public class Person {
 			}
 		}
 	};
+	
+	public static Comparator<Person> GeneralMovieComparator = new Comparator<Person>() {
+		public int compare(Person p1, Person p2) {
+			return MovieSizeComparator.compare(p1, p2);
+		}
+	};
+	
+	private static Comparator<Person> MovieSizeComparator = new Comparator<Person>(){
+		public int compare(Person p1, Person p2) {
+			if (p1.movies.size() > p2.movies.size())
+				return -1;
+			else if (p1.movies.size() < p2.movies.size())
+				return 1;
+			else
+				return MovieStringComparator.compare(p1, p2);
+		}
+	};
+	
+	private static Comparator<Person> MovieStringComparator = new Comparator<Person>(){
+		public int compare(Person p1, Person p2) {
+			if (p1.movies.get(0).compareTo(p2.movies.get(0))<0) {
+					return -1;
+			}else if(p1.movies.get(0).compareTo(p2.movies.get(0))>0) {
+				return 1;
+			}else {
+				return 0;
+			}
+		}
+	};
+	
 }
