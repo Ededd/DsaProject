@@ -76,6 +76,10 @@ public class Person {
 		return studiedat;
 	}
 	
+	public ArrayList<String> getMovies(){
+		return movies;
+	}
+	
 	/* Given the id (String) of a user, it adds it as a friend.
 	 */
 	public void addFriend(String id) {

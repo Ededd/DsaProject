@@ -1,5 +1,7 @@
 import java.io.FileNotFoundException;
+import java.util.HashMap;
 import java.util.InputMismatchException;
+import java.util.Map;
 import java.util.Scanner;
 
 
@@ -163,14 +165,7 @@ public class Menu {
 				break;
 			case 14:
 				people.movieSort();
-				try {
-					System.out.println("Introduce a path for the file:");
-					String path = input.next();
-					people.printUsersFrom(path);
-				} catch (FileNotFoundException e) {
-					System.out.println("The given path is invalid or the file does not exist. Try again.");
-					break;
-				}
+				people.moviesClass();
 				break;
 			case 15:
 				System.out.println("END OF THE PROGRAM");

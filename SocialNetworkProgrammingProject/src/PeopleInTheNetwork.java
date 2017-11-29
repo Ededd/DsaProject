@@ -2,6 +2,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class PeopleInTheNetwork {
@@ -256,6 +259,31 @@ public class PeopleInTheNetwork {
 		f.close();
 	}
 	
+	public void moviesClass() {
+		Map<String[], String[]> moviesClass = new HashMap<String[], String[]>();
+		for (Person p : list) {
+			String[] movieNames = p.getMovies().toArray(new String[p.getMovies().size()]);
+			if (!moviesClass.containsKey(movieNames)) {//if moviesclass not created
+				String[] newidentifiers = new String[10];//create new class
+				newidentifiers[0] = p.getIdentifier();				
+				moviesClass.put(movieNames, newidentifiers); //add user
+			}else {
+				String[] newval = moviesClass.get(movieNames);//add user to the list
+				newval[moviesClass.get(movieNames).length]=p.getIdentifier();
+				moviesClass.put(movieNames, newval);//put new list in the class
+			}
+		}	
+		for (String[] movies : moviesClass.keySet()) {
+		    System.out.print("Movies : " + Arrays.asList(movies) + " Users:");
+		    for (String id : moviesClass.get(movies)) {
+		    	if(id !=null)
+		    	System.out.print(" " + id + " ");    
+		    }
+		    System.out.println();
+	    }
+		
+	}
+	
 	//Sorter by IDs
 	public void IDSort() {
 		list.sort(Person.IDComparator);
@@ -280,4 +308,7 @@ public class PeopleInTheNetwork {
 	public void movieSort() {
 		list.sort(Person.GeneralMovieComparator);
 	}
+	
+	
+	
 }
