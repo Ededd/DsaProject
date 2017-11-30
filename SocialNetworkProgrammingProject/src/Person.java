@@ -233,13 +233,15 @@ public class Person {
 	
 	private static Comparator<Person> MovieStringComparator = new Comparator<Person>(){
 		public int compare(Person p1, Person p2) {
-			if (p1.movies.get(0).compareTo(p2.movies.get(0))<0) {
-					return -1;
-			}else if(p1.movies.get(0).compareTo(p2.movies.get(0))>0) {
-				return 1;
-			}else {
-				return 0;
+			int i = 0;
+			for (String m : p1.movies) {
+				if (m.equals(p2.movies.get(i)))
+					i++;
+				else {
+					return m.compareTo(p2.movies.get(i));
+				}
 			}
+			return 0;
 		}
 	};
 	

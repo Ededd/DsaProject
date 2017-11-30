@@ -4,8 +4,10 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 
 public class PeopleInTheNetwork {
 	
@@ -284,6 +286,22 @@ public class PeopleInTheNetwork {
 		
 	}
 	
+	public void moviesClassModif() {
+		int i = 0;
+		for (Person p1 : list) {
+			for (Person p2 : list) {
+				if (p1.getMovies().size() == p2.getMovies().size()) {
+					int i = 0;
+					for (String m : p1.getMovies()) {
+						if (m.equals(p2.getMovies().get(i)))
+							i++;
+						
+					}
+				}
+			}
+		}
+	}
+	
 	//Sorter by IDs
 	public void IDSort() {
 		list.sort(Person.IDComparator);
@@ -309,6 +327,12 @@ public class PeopleInTheNetwork {
 		list.sort(Person.GeneralMovieComparator);
 	}
 	
-	
-	
+	public void printFilms() {
+		for (Person p : list) {
+			System.out.print(p.getName());
+			for (String m : p.getMovies())
+				System.out.print("-;-" + m + "-;-");
+			System.out.println();
+		}
+	}
 }

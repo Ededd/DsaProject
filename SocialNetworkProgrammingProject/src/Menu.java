@@ -166,6 +166,8 @@ public class Menu {
 			case 14:
 				people.movieSort();
 				people.moviesClass();
+				//people.movieSort();
+				//people.printFilms();
 				break;
 			case 15:
 				System.out.println("END OF THE PROGRAM");
