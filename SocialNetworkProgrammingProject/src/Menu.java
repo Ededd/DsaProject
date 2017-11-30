@@ -17,7 +17,7 @@ public class Menu {
 		Scanner input = new Scanner(System.in);
 		//filepath: C:\Users\noela\Desktop\filename.txt
 		choice = -5;
-		while (choice != 14) {
+		while (choice != 15) {
 			System.out.println();
 			System.out.println();
 			System.out.println("Select one of the following options:");
@@ -189,7 +189,7 @@ public class Menu {
 		menu(database);
 		
 		System.out.println("===============================================================");
-		System.out.println("--- Developed by Noel Arteche, Edmund Home and Pablo Felipe ---");	
+		System.out.println("--- Developed by Noel Arteche & Edmund Home ---");	
 		System.out.println("===============================================================");
 	}
 

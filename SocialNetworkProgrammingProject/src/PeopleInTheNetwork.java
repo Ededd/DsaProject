@@ -260,7 +260,7 @@ public class PeopleInTheNetwork {
 		}
 		f.close();
 	}
-	
+	/*
 	public void moviesClass() {
 		Map<String[], String[]> moviesClass = new HashMap<String[], String[]>();
 		for (Person p : list) {
@@ -283,23 +283,27 @@ public class PeopleInTheNetwork {
 		    }
 		    System.out.println();
 	    }
-		
 	}
-	
-	public void moviesClassModif() {
-		int i = 0;
-		for (Person p1 : list) {
-			for (Person p2 : list) {
-				if (p1.getMovies().size() == p2.getMovies().size()) {
-					int i = 0;
-					for (String m : p1.getMovies()) {
-						if (m.equals(p2.getMovies().get(i)))
-							i++;
-						
-					}
-				}
+	*/
+	public void moviesClass() {
+		Map<String, ArrayList<String>> moviesClass = new HashMap<String, ArrayList<String>>();
+		for (Person p : list) {
+			String movieNames = p.getMovies().toString();
+			if (!moviesClass.containsKey(movieNames)) {//if moviesclass not created
+				ArrayList<String> ids = new ArrayList<String>();
+				ids.add(p.getIdentifier());
+				moviesClass.put(movieNames, ids); //add user
+			}else {
+				moviesClass.get(movieNames).add(p.getIdentifier());
 			}
-		}
+		}	
+		for (String movies : moviesClass.keySet()) {
+		    System.out.print("Movies : " + movies + " Users:");
+		    for (String id : moviesClass.get(movies)) {
+		    	System.out.print(" " + id + " ");    
+		    }
+		    System.out.println();
+	    }
 	}
 	
 	//Sorter by IDs
